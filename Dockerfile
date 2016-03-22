@@ -12,7 +12,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
     rm -rf /tmp/* && \
     mkdir /backup
 
-ADD main.py /main.py
+ADD restore.py /restore.py
 
 VOLUME ["/backup"]
 
