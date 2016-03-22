@@ -23,11 +23,11 @@ def restore():
             print('')
 
         cmd = "mongorestore "
-        args = [('--host=', 'MONGODB_RESTORE_HOST'),
-                ('--port=', 'MONGODB_RESTORE_PORT'),
-                ('--username=', 'MONGODB_RESTORE_USER'),
-                ('--password=', 'MONGODB_RESTORE_PASS'),
-                ('--db=', 'MONGODB_RESTORE_DB')]
+        args = [('--host=', 'MONGODB_BACKUP_HOST'),
+                ('--port=', 'MONGODB_BACKUP_PORT'),
+                ('--username=', 'MONGODB_BACKUP_USER'),
+                ('--password=', 'MONGODB_BACKUP_PASS'),
+                ('--db=', 'MONGODB_BACKUP_DB')]
         for arg in args:
             if os.getenv(arg[1]):
                 cmd += '%s%s ' % (arg[0], os.getenv(arg[1]))
