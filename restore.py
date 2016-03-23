@@ -22,7 +22,7 @@ def restore():
             subprocess.call(shlex.split(cmd))
             print('')
 
-        os.chdir(os.path.join('backup', backup_name))
+        # os.chdir(os.path.join('backup', backup_name))
         cmd = "mongorestore "
         args = [('--host=', 'MONGODB_BACKUP_HOST'),
                 ('--port=', 'MONGODB_BACKUP_PORT'),
@@ -32,7 +32,7 @@ def restore():
         for arg in args:
             if os.getenv(arg[1]):
                 cmd += '%s%s ' % (arg[0], os.getenv(arg[1]))
-        # cmd += ' %s/%s' % (backup_name, os.getenv('MONGODB_BACKUP_DB'))
+        cmd += ' backup/%s' % os.getenv('MONGODB_BACKUP_DB')
         print(cmd)
         subprocess.call(shlex.split(cmd))
         print()
